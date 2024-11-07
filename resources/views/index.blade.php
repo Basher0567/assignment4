@@ -15,7 +15,7 @@
 <body>
 
     <h2 class="text-center mt-3 p-4">Search Data from Database</h2>
-    <input type="text" name="search" id="search" class="mb-3 form-control" placeholder="Search For Something">
+    <input type="search" name="search" id="search" class="mb-3 form-control" placeholder="Search For Something">
     <form action="{{ url('search') }}" method="GET" align="center">
         <input type="search" name="search" placeholder="Search for Something">
         <input type="submit" value="Search">
@@ -71,6 +71,7 @@
                                 </tr>
                             @endforeach
                         </tbody>
+                        <tbody id="Content"></tbody>
                     </table>
                     <div class="row">
                         {{$data->links()}}

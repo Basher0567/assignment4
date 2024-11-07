@@ -97,7 +97,7 @@ class ProductController extends Controller
         $search=$request->search;
         $data=Product::where('product_id','LIKE','%'.$search.'%')->orWhere('description','LIKE','%'.$search.'%')->orderBy('id','desc')->paginate(5);
         //$search=$request->search_string;
-        //$data=Product::where('product_id','LIKE','%'.$search.'%')->orWhere('description','LIKE','%'.$search.'%')->orderBy('id','desc')->paginate(5);
+        //$data=Product::where('product_id','LIKE','%'.$request->search.'%')->orWhere('description','LIKE','%'.$request->search.'%')->get();
         return view('index',compact('data'));
     }
 }

@@ -11,18 +11,31 @@ $.ajaxSetup({
 </script>
 <script>
 $(document).ready(function(){
-    $(document).on('keyup',function(e){
+    /*$(document).on('keyup',function(e){
         e.preventDefault();
-        let search_string=$('#search').val();
+        let $search_string=$('#search').val();
         //console.log(search_string);
         $.ajax({
             url:"{{route('searchProduct')}}",
             method:'GET',
-            data:{search_string:search_string},
+            data:{'search_string':search_string},
             success:function(res){
                 $('.table-data').html(res);
             }
         });
-    })
+    })*/
+
+    $('#search').on('keyup',function(){
+        $value=$(this).val();
+        $.ajax({
+            method:'get',
+            url::'{{route('searchProduct')}}',
+            data:{'search':$value},
+            success:function(data){
+                console.log(data);
+                $('#Content').html(data);
+            }
+        });
+    });
 });
 </script>
